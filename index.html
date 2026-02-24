@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Etichetare Dataset — Ii Tradiționale Românești</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --rosu: #8B1A1A;
+      --rosu-deschis: #C4472A;
+      --negru: #1a1410;
+      --crem: #F5EFE0;
+      --crem-inchis: #E8DFC8;
+      --auriu: #B8860B;
+      --text-slab: #6b5d4a;
+    }
+
+```
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--crem);
+  color: var(--negru);
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  min-height: 100vh;
+}
+
+/* Pattern decorativ de altiță în header */
+header {
+  background: var(--rosu);
+  color: var(--crem);
+  padding: 2rem 2.5rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+header::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 8px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--auriu) 0px, var(--auriu) 8px,
+    var(--rosu-deschis) 8px, var(--rosu-deschis) 16px,
+    var(--negru) 16px, var(--negru) 24px,
+    var(--rosu-deschis) 24px, var(--rosu-deschis) 32px
+  );
+}
+
+header::before {
+  content: '✦ ◆ ✦ ◆ ✦ ◆ ✦ ◆ ✦ ◆ ✦ ◆ ✦ ◆ ✦ ◆ ✦ ◆ ✦ ◆ ✦ ◆ ✦ ◆ ✦ ◆ ✦ ◆ ✦';
+  position: absolute;
+  top: 0.4rem; left: 0; right: 0;
+  text-align: center;
+  color: rgba(255,255,255,0.15);
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+h1 span {
+  font-style: italic;
+  font-weight: 400;
+  color: rgba(255,255,255,0.75);
+}
+
+.subtitle {
+  margin-top: 0.3rem;
+  color: rgba(255,255,255,0.6);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+/* ── Secțiuni ── */
+.sectiune {
+  background: white;
+  border: 1px solid var(--crem-inchis);
+  border-top: 3px solid var(--rosu);
+  padding: 1.5rem;
+}
+
+.sectiune.full-width {
+  grid-column: 1 / -1;
+}
+
+.sectiune-titlu {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--rosu);
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--crem-inchis);
+}
+
+/* ── Câmpuri ── */
+.camp {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-slab);
+  margin-bottom: 0.35rem;
+}
+
+label .obligatoriu {
+  color: var(--rosu);
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--crem-inchis);
+  background: var(--crem);
+  color: var(--negru);
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  outline: none;
+  transition: border-color 0.2s;
+  -webkit-appearance: none;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--rosu);
+  background: white;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Checkbox grid */
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4rem;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 0.3rem;
+  border: 1px solid transparent;
+  transition: all 0.15s;
+}
+
+.checkbox-item:hover {
+  background: var(--crem);
+  border-color: var(--crem-inchis);
+}
+
+.checkbox-item input[type="checkbox"] {
+  width: 14px;
+  height: 14px;
+  accent-color: var(--rosu);
+  flex-shrink: 0;
+}
+
+/* Culori */
+.culori-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.4rem;
+}
+
+.culoare-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.culoare-item input[type="checkbox"] {
+  accent-color: var(--rosu);
+}
+
+.culoare-bif {
+  width: 28px;
+  height: 28px;
+  border: 2px solid transparent;
+  transition: border-color 0.15s;
+}
+
+.culoare-item:has(input:checked) .culoare-bif {
+  border-color: var(--rosu);
+  box-shadow: 0 0 0 2px white, 0 0 0 4px var(--rosu);
+}
+
+/* Output */
+.output-area {
+  background: var(--negru);
+  color: #a8d8a8;
+  font-family: 'DM Mono', monospace;
+  font-size: 11.5px;
+  padding: 1.2rem;
+  line-height: 1.7;
+  min-height: 120px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.output-ro {
+  background: #1a1410;
+  color: #d4b896;
+  font-family: 'DM Mono', monospace;
+  font-size: 11.5px;
+  padding: 1.2rem;
+  line-height: 1.7;
+  min-height: 80px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin-top: 0.75rem;
+}
+
+.output-label {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-slab);
+  margin-bottom: 0.4rem;
+}
+
+/* Butoane */
+.butoane {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+button {
+  padding: 0.65rem 1.4rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+  transition: all 0.15s;
+}
+
+.btn-primary {
+  background: var(--rosu);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--rosu-deschis);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--rosu);
+  border: 1px solid var(--rosu);
+}
+
+.btn-secondary:hover {
+  background: var(--rosu);
+  color: white;
+}
+
+.btn-reset {
+  background: transparent;
+  color: var(--text-slab);
+  border: 1px solid var(--crem-inchis);
+}
+
+.btn-reset:hover {
+  border-color: var(--negru);
+  color: var(--negru);
+}
+
+/* Contor */
+.contor {
+  grid-column: 1 / -1;
+  background: var(--negru);
+  color: var(--crem);
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+}
+
+.contor strong {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  color: var(--auriu);
+}
+
+/* Notă */
+.nota {
+  grid-column: 1 / -1;
+  background: #fffbf0;
+  border-left: 3px solid var(--auriu);
+  padding: 0.75rem 1rem;
+  font-size: 11px;
+  color: var(--text-slab);
+  line-height: 1.6;
+}
+
+.nota strong {
+  color: var(--negru);
+}
+
+/* Copiat indicator */
+.copiat {
+  display: none;
+  color: var(--auriu);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+}
+
+.copiat.vizibil {
+  display: inline;
+}
+
+@media (max-width: 640px) {
+  .container { grid-template-columns: 1fr; }
+  .sectiune.full-width { grid-column: 1; }
+  .contor { grid-column: 1; }
+  .nota { grid-column: 1; }
+}
+```
+
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Dataset <span>Ii Tradiționale Românești</span></h1>
+  <div class="subtitle">Instrument de etichetare pentru antrenament model IA</div>
+</header>
+
+<div class="container">
+
+  <!-- CONTOR -->
+
+  <div class="contor">
+    <div>Imagini etichetate în această sesiune: <strong id="contor">0</strong></div>
+    <div id="msg-salvat" style="color: #a8d8a8; font-size:11px;"></div>
+  </div>
+
+  <!-- NOTĂ -->
+
+  <div class="nota">
+    <strong>Cum folosești acest instrument:</strong> Completează câmpurile pentru fiecare piesă → apasă „Generează Caption" → verifică textul generat → apasă „Salvează și continuă" pentru a trece la piesa următoare. La final, descarcă toate captionurile ca fișier JSON.
+  </div>
+
+  <!-- ── IDENTIFICARE ── -->
+
+  <div class="sectiune">
+    <div class="sectiune-titlu">📍 Identificare piesă</div>
+
+```
+<div class="camp">
+  <label>ID imagine <span class="obligatoriu">*</span></label>
+  <input type="text" id="id-imagine" placeholder="ex: OLT_001, MB_042">
+</div>
+
+<div class="camp">
+  <label>Județ / Zonă etnografică <span class="obligatoriu">*</span></label>
+  <select id="judet">
+    <option value="">— selectează —</option>
+    <optgroup label="Muntenia">
+      <option value="Argeș (Muscel)">Argeș (Muscel)</option>
+      <option value="Argeș (Câmpulung)">Argeș (Câmpulung)</option>
+      <option value="Dâmbovița">Dâmbovița</option>
+      <option value="Prahova">Prahova</option>
+      <option value="Ilfov / București">Ilfov / București</option>
+      <option value="Teleorman (Vlașca)">Teleorman (Vlașca)</option>
+    </optgroup>
+    <optgroup label="Oltenia">
+      <option value="Olt (Romanați)">Olt (Romanați)</option>
+      <option value="Dolj">Dolj</option>
+      <option value="Gorj">Gorj</option>
+      <option value="Vâlcea">Vâlcea</option>
+      <option value="Mehedinți">Mehedinți</option>
+    </optgroup>
+    <optgroup label="Moldova">
+      <option value="Iași">Iași</option>
+      <option value="Vrancea">Vrancea</option>
+      <option value="Bacău">Bacău</option>
+      <option value="Suceava (Bucovina)">Suceava (Bucovina)</option>
+      <option value="Neamț">Neamț</option>
+      <option value="Vaslui">Vaslui</option>
+    </optgroup>
+    <optgroup label="Transilvania">
+      <option value="Sibiu (Mărginimea Sibiului)">Sibiu (Mărginimea Sibiului)</option>
+      <option value="Sibiu (Păltiniș)">Sibiu (Păltiniș)</option>
+      <option value="Cluj">Cluj</option>
+      <option value="Bihor">Bihor</option>
+      <option value="Alba">Alba</option>
+      <option value="Brașov (Țara Bârsei)">Brașov (Țara Bârsei)</option>
+      <option value="Mureș (Câmpia Transilvaniei)">Mureș (Câmpia Transilvaniei)</option>
+    </optgroup>
+    <optgroup label="Banat / Crișana">
+      <option value="Timiș">Timiș</option>
+      <option value="Caraș-Severin">Caraș-Severin</option>
+      <option value="Arad">Arad</option>
+      <option value="Bihor (Crișana)">Bihor (Crișana)</option>
+    </optgroup>
+    <optgroup label="Maramureș / Dobrogea">
+      <option value="Maramureș">Maramureș</option>
+      <option value="Dobrogea">Dobrogea</option>
+    </optgroup>
+  </select>
+</div>
+
+<div class="camp">
+  <label>Perioada aproximativă</label>
+  <select id="perioada">
+    <option value="">— selectează —</option>
+    <option value="late 19th century">Sfârșitul sec. XIX (1870–1900)</option>
+    <option value="early 20th century">Începutul sec. XX (1900–1930)</option>
+    <option value="mid 20th century">Mijlocul sec. XX (1930–1960)</option>
+    <option value="late 20th century">Sfârșitul sec. XX (1960–1990)</option>
+    <option value="contemporary revival">Revival contemporan (post-1990)</option>
+    <option value="undated, traditional">Nedatată, tradițională</option>
+  </select>
+</div>
+
+<div class="camp">
+  <label>Sursa imaginii</label>
+  <input type="text" id="sursa" placeholder="ex: Muzeul ASTRA Sibiu, arhivă personală">
+</div>
+```
+
+  </div>
+
+  <!-- ── ALTIȚĂ ── -->
+
+  <div class="sectiune">
+    <div class="sectiune-titlu">🔷 Altiță</div>
+
+```
+<div class="camp">
+  <label>Forma altiței <span class="obligatoriu">*</span></label>
+  <select id="altita-forma">
+    <option value="">— selectează —</option>
+    <option value="rectangular altita panel">Dreptunghiulară</option>
+    <option value="wide trapezoidal altita">Trapezoidală lată</option>
+    <option value="narrow altita band">Bandă îngustă</option>
+    <option value="square altita panel">Pătrată</option>
+    <option value="absent, shoulder seam only">Fără altiță (cusătură simplă)</option>
+  </select>
+</div>
+
+<div class="camp">
+  <label>Lățimea altiței</label>
+  <select id="altita-latime">
+    <option value="">— selectează —</option>
+    <option value="very wide altita (over 15cm)">Foarte lată (peste 15cm)</option>
+    <option value="wide altita (10-15cm)">Lată (10–15cm)</option>
+    <option value="medium altita (5-10cm)">Medie (5–10cm)</option>
+    <option value="narrow altita (under 5cm)">Îngustă (sub 5cm)</option>
+  </select>
+</div>
+
+<div class="camp">
+  <label>Tehnica de broderie la altiță</label>
+  <div class="checkbox-grid">
+    <label class="checkbox-item"><input type="checkbox" name="tehnica" value="cross-stitch embroidery"> Punct încrucișat</label>
+    <label class="checkbox-item"><input type="checkbox" name="tehnica" value="drawn thread work (ajur)"> Ajur</label>
+    <label class="checkbox-item"><input type="checkbox" name="tehnica" value="satin stitch"> Punct de umplutură</label>
+    <label class="checkbox-item"><input type="checkbox" name="tehnica" value="chain stitch"> Punct lanț</label>
+    <label class="checkbox-item"><input type="checkbox" name="tehnica" value="needlepoint on canvas"> Canavă</label>
+    <label class="checkbox-item"><input type="checkbox" name="tehnica" value="blackwork"> Negru pe alb</label>
+  </div>
+</div>
+```
+
+  </div>
+
+  <!-- ── MOTIVE ── -->
+
+  <div class="sectiune">
+    <div class="sectiune-titlu">◆ Motive decorative</div>
+
+```
+<div class="camp">
+  <label>Motive principale</label>
+  <div class="checkbox-grid">
+    <label class="checkbox-item"><input type="checkbox" name="motiv" value="rhombus geometric motifs"> Romburi</label>
+    <label class="checkbox-item"><input type="checkbox" name="motiv" value="tree of life motif"> Pomul vieții</label>
+    <label class="checkbox-item"><input type="checkbox" name="motiv" value="S-hook and spiral motifs"> Cârlige / spirale</label>
+    <label class="checkbox-item"><input type="checkbox" name="motiv" value="stylized floral motifs"> Flori stilizate</label>
+    <label class="checkbox-item"><input type="checkbox" name="motiv" value="bird motifs"> Păsări</label>
+    <label class="checkbox-item"><input type="checkbox" name="motiv" value="star and solar motifs"> Stele / rozete solare</label>
+    <label class="checkbox-item"><input type="checkbox" name="motiv" value="zigzag and chevron patterns"> Zigzag / val</label>
+    <label class="checkbox-item"><input type="checkbox" name="motiv" value="meander border pattern"> Meandru (brâu)</label>
+    <label class="checkbox-item"><input type="checkbox" name="motiv" value="human figure motifs"> Figuri umane stilizate</label>
+    <label class="checkbox-item"><input type="checkbox" name="motiv" value="grape and vine motifs"> Vie / struguri</label>
+  </div>
+</div>
+
+<div class="camp">
+  <label>Culori dominante broderie</label>
+  <div class="culori-grid">
+    <label class="culoare-item">
+      <div class="culoare-bif" style="background:#8B1A1A;"></div>
+      <input type="checkbox" name="culoare" value="dark red"> Roșu închis
+    </label>
+    <label class="culoare-item">
+      <div class="culoare-bif" style="background:#C4472A;"></div>
+      <input type="checkbox" name="culoare" value="bright red"> Roșu viu
+    </label>
+    <label class="culoare-item">
+      <div class="culoare-bif" style="background:#1a1410;"></div>
+      <input type="checkbox" name="culoare" value="black"> Negru
+    </label>
+    <label class="culoare-item">
+      <div class="culoare-bif" style="background:#1C3A6B;"></div>
+      <input type="checkbox" name="culoare" value="navy blue"> Bleumarin
+    </label>
+    <label class="culoare-item">
+      <div class="culoare-bif" style="background:#B8860B;"></div>
+      <input type="checkbox" name="culoare" value="golden yellow"> Galben auriu
+    </label>
+    <label class="culoare-item">
+      <div class="culoare-bif" style="background:#2E7D32;"></div>
+      <input type="checkbox" name="culoare" value="dark green"> Verde închis
+    </label>
+    <label class="culoare-item">
+      <div class="culoare-bif" style="background:#7B3F9E;"></div>
+      <input type="checkbox" name="culoare" value="purple"> Mov
+    </label>
+    <label class="culoare-item">
+      <div class="culoare-bif" style="background:#E8DFC8;border:1px solid #ccc;"></div>
+      <input type="checkbox" name="culoare" value="white-on-white"> Alb pe alb
+    </label>
+  </div>
+</div>
+```
+
+  </div>
+
+  <!-- ── CONSTRUCȚIE ── -->
+
+  <div class="sectiune">
+    <div class="sectiune-titlu">📐 Construcție & Croi</div>
+
+```
+<div class="camp">
+  <label>Tipul încreților la gât</label>
+  <select id="incret-gat">
+    <option value="">— selectează —</option>
+    <option value="dense fine gathering at neckline">Funde dese, fine</option>
+    <option value="wide gathered neckline">Creț larg</option>
+    <option value="smocked neckline">Cusătură de reținere (smoc)</option>
+    <option value="flat neckline, no gathering">Neted, fără creț</option>
+  </select>
+</div>
+
+<div class="camp">
+  <label>Forma mânecii</label>
+  <select id="maneca">
+    <option value="">— selectează —</option>
+    <option value="long straight sleeves">Lungă, dreaptă</option>
+    <option value="long sleeves with puffed upper arm">Lungă, bufantă la umăr</option>
+    <option value="long sleeves with wide cuff (fodor)">Lungă, cu fodor la mânecă</option>
+    <option value="three-quarter sleeves">Trei sferturi</option>
+    <option value="short sleeves">Scurtă</option>
+  </select>
+</div>
+
+<div class="camp">
+  <label>Materialul de bază <span class="obligatoriu">*</span></label>
+  <select id="material">
+    <option value="">— selectează —</option>
+    <option value="natural undyed linen fabric">In natural, nealbuit</option>
+    <option value="bleached white linen">In albit</option>
+    <option value="cotton fabric">Bumbac</option>
+    <option value="fine white cotton (borangic)">Borangic (mătase)</option>
+    <option value="wool fabric">Lână</option>
+  </select>
+</div>
+
+<div class="camp">
+  <label>Starea de conservare</label>
+  <select id="stare">
+    <option value="">— selectează —</option>
+    <option value="excellent condition, museum quality">Excelentă (muzeu)</option>
+    <option value="good condition, minor wear">Bună, uzură normală</option>
+    <option value="worn with visible aging">Uzată, patinată</option>
+    <option value="fragmented or restored">Fragmentară / restaurată</option>
+  </select>
+</div>
+
+<div class="camp">
+  <label>Elemente prezente</label>
+  <div class="checkbox-grid">
+    <label class="checkbox-item"><input type="checkbox" name="element" value="decorative border at hem"> Brâu la poale</label>
+    <label class="checkbox-item"><input type="checkbox" name="element" value="decorative cuff border"> Brâu la mânecă</label>
+    <label class="checkbox-item"><input type="checkbox" name="element" value="side gussets (clini)"> Clini laterali</label>
+    <label class="checkbox-item"><input type="checkbox" name="element" value="back panel embroidery"> Broderie spate</label>
+  </div>
+</div>
+```
+
+  </div>
+
+  <!-- ── OBSERVAȚII ── -->
+
+  <div class="sectiune full-width">
+    <div class="sectiune-titlu">📝 Observații etnografice (opțional)</div>
+    <div class="camp">
+      <label>Particularități notabile, context de port, informații transmise de purtătoare</label>
+      <textarea id="observatii" placeholder="ex: Ie de sărbătoare, purtată la Paști. Altiță specifică zonei Muscel cu motivul coarnelor berbecului..."></textarea>
+    </div>
+  </div>
+
+  <!-- ── OUTPUT ── -->
+
+  <div class="sectiune full-width">
+    <div class="sectiune-titlu">⚙️ Caption generat</div>
+
+```
+<div class="butoane">
+  <button class="btn-primary" onclick="genereazaCaption()">▶ Generează Caption</button>
+  <button class="btn-secondary" onclick="copiazaCaption()">⎘ Copiază</button>
+  <button class="btn-secondary" onclick="salveazaSiContinua()">✓ Salvează și continuă</button>
+  <button class="btn-reset" onclick="reseteazaForm()">↺ Piesă nouă</button>
+  <span id="copiat-msg" class="copiat">✓ copiat în clipboard</span>
+</div>
+
+<br>
+<div class="output-label">🇬🇧 Caption pentru antrenament (engleză)</div>
+<div class="output-area" id="output-en">— completează câmpurile și apasă „Generează Caption" —</div>
+
+<div class="output-label">🇷🇴 Rezumat în română (pentru verificare)</div>
+<div class="output-ro" id="output-ro">—</div>
+```
+
+  </div>
+
+  <!-- ── EXPORT ── -->
+
+  <div class="sectiune full-width">
+    <div class="sectiune-titlu">💾 Export dataset</div>
+    <p style="font-size:12px; color:var(--text-slab); margin-bottom:1rem;">
+      Toate piesele salvate în această sesiune pot fi descărcate ca fișier JSON — formatul standard pentru antrenament IA.
+    </p>
+    <div class="butoane">
+      <button class="btn-primary" onclick="descarcaJSON()">↓ Descarcă JSON</button>
+      <button class="btn-secondary" onclick="descarcaTXT()">↓ Descarcă TXT (captionuri simple)</button>
+    </div>
+    <br>
+    <div id="previzualizare-dataset" style="display:none;">
+      <div class="output-label">Previzualizare dataset (<span id="nr-piese">0</span> piese)</div>
+      <div class="output-area" id="dataset-preview" style="max-height:200px; overflow-y:auto;"></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // ── Stocăm toate piesele salvate ──
+  let dataset = [];
+
+  function getVal(id) {
+    const el = document.getElementById(id);
+    return el ? el.value.trim() : '';
+  }
+
+  function getChecked(name) {
+    return [...document.querySelectorAll(`input[name="${name}"]:checked`)]
+      .map(el => el.value);
+  }
+
+  // ── GENERARE CAPTION ──
+  function genereazaCaption() {
+    const id = getVal('id-imagine');
+    const judet = getVal('judet');
+    const perioada = getVal('perioada');
+    const sursa = getVal('sursa');
+
+    const altitaForma = getVal('altita-forma');
+    const altitaLatime = getVal('altita-latime');
+    const tehnici = getChecked('tehnica');
+
+    const motive = getChecked('motiv');
+    const culori = getChecked('culoare');
+
+    const incretGat = getVal('incret-gat');
+    const maneca = getVal('maneca');
+    const material = getVal('material');
+    const stare = getVal('stare');
+    const elemente = getChecked('element');
+
+    const observatii = getVal('observatii');
+
+    // Validare minimă
+    if (!judet || !material) {
+      document.getElementById('output-en').textContent =
+        '⚠ Completează cel puțin: Județ/Zonă și Material de bază.';
+      return;
+    }
+
+    // ── Construim caption-ul în engleză ──
+    let parts = [];
+
+    // Intro standard
+    let intro = `Authentic Romanian traditional blouse (ie, cămașă cu altiță) from ${judet} region`;
+    if (perioada) intro += `, ${perioada}`;
+    intro += '.';
+    parts.push(intro);
+
+    // Altiță
+    if (altitaForma) {
+      let altitaDesc = altitaForma.charAt(0).toUpperCase() + altitaForma.slice(1);
+      if (altitaLatime) altitaDesc += `, ${altitaLatime}`;
+      if (tehnici.length > 0) altitaDesc += ` worked in ${tehnici.join(' and ')}`;
+      if (culori.length > 0) altitaDesc += ` in ${culori.join(', ')} colors`;
+      parts.push(`Shoulder panel (altita): ${altitaDesc}.`);
+    }
+
+    // Motive
+    if (motive.length > 0) {
+      parts.push(`Decorative motifs: ${motive.join(', ')}.`);
+    }
+
+    // Construcție
+    let constructie = [];
+    if (incretGat) constructie.push(incretGat);
+    if (maneca) constructie.push(maneca);
+    if (elemente.length > 0) constructie.push(...elemente);
+    if (constructie.length > 0) {
+      parts.push(`Construction details: ${constructie.join(', ')}.`);
+    }
+
+    // Material
+    if (material) {
+      parts.push(`Fabric: ${material}.`);
+    }
+
+    // CE NU ESTE — crucial pentru antrenament
+    parts.push(`Not a blouse: no collar, no buttons, no decorative lace trim, no modern cut, no fitted waist, no synthetic fabric. Traditional Romanian garment, ethnographic textile.`);
+
+    // Stare
+    if (stare) parts.push(`Condition: ${stare}.`);
+
+    // Sursă
+    if (sursa) parts.push(`Source: ${sursa}.`);
+
+    const captionEn = parts.join(' ');
+
+    // ── Rezumat în română ──
+    let ro = `Ie din zona ${judet || '—'}`;
+    if (perioada) ro += `, ${getTextSelectat('perioada')}`;
+    if (altitaForma) ro += `. Altiță: ${getTextSelectat('altita-forma')}`;
+    if (material) ro += `. Material: ${getTextSelectat('material')}`;
+    if (motive.length > 0) ro += `. Motive: ${motive.map(m => m.split(' ').slice(0,2).join(' ')).join(', ')}`;
+    if (observatii) ro += `. Note: ${observatii}`;
+
+    document.getElementById('output-en').textContent = captionEn;
+    document.getElementById('output-ro').textContent = ro;
+
+    // Stocăm caption-ul curent pentru salvare
+    window._captionCurent = {
+      id: id || `piesa_${Date.now()}`,
+      judet, perioada, sursa,
+      altita: { forma: altitaForma, latime: altitaLatime, tehnici },
+      motive, culori,
+      constructie: { incretGat, maneca, elemente },
+      material, stare,
+      observatii,
+      caption_en: captionEn,
+      caption_ro: ro,
+      timestamp: new Date().toISOString()
+    };
+  }
+
+  function getTextSelectat(id) {
+    const el = document.getElementById(id);
+    if (!el) return '';
+    return el.options[el.selectedIndex]?.text || '';
+  }
+
+  // ── COPIAZĂ ──
+  function copiazaCaption() {
+    const text = document.getElementById('output-en').textContent;
+    if (text.startsWith('—') || text.startsWith('⚠')) return;
+    navigator.clipboard.writeText(text).then(() => {
+      const msg = document.getElementById('copiat-msg');
+      msg.classList.add('vizibil');
+      setTimeout(() => msg.classList.remove('vizibil'), 2500);
+    });
+  }
+
+  // ── SALVEAZĂ ──
+  function salveazaSiContinua() {
+    if (!window._captionCurent) {
+      alert('Generează mai întâi caption-ul apăsând ▶');
+      return;
+    }
+    dataset.push(window._captionCurent);
+    window._captionCurent = null;
+
+    const contor = document.getElementById('contor');
+    contor.textContent = dataset.length;
+
+    document.getElementById('msg-salvat').textContent =
+      `✓ "${dataset[dataset.length-1].id}" salvat`;
+    setTimeout(() => {
+      document.getElementById('msg-salvat').textContent = '';
+    }, 3000);
+
+    // Actualizare previzualizare
+    document.getElementById('previzualizare-dataset').style.display = 'block';
+    document.getElementById('nr-piese').textContent = dataset.length;
+    document.getElementById('dataset-preview').textContent =
+      dataset.map((p, i) => `[${i+1}] ${p.id} — ${p.judet} — ${p.caption_en.substring(0, 80)}...`).join('\n');
+
+    reseteazaForm();
+  }
+
+  // ── RESETEAZĂ ──
+  function reseteazaForm() {
+    document.querySelectorAll('select').forEach(s => s.selectedIndex = 0);
+    document.querySelectorAll('input[type="text"]').forEach(i => i.value = '');
+    document.querySelectorAll('input[type="checkbox"]').forEach(c => c.checked = false);
+    document.querySelectorAll('textarea').forEach(t => t.value = '');
+    document.getElementById('output-en').textContent = '— completează câmpurile și apasă „Generează Caption" —';
+    document.getElementById('output-ro').textContent = '—';
+  }
+
+  // ── EXPORT JSON ──
+  function descarcaJSON() {
+    if (dataset.length === 0) {
+      alert('Nu ai salvat nicio piesă încă.');
+      return;
+    }
+    const blob = new Blob([JSON.stringify(dataset, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `dataset_ie_${new Date().toISOString().split('T')[0]}.json`;
+    a.click();
+  }
+
+  // ── EXPORT TXT ──
+  function descarcaTXT() {
+    if (dataset.length === 0) {
+      alert('Nu ai salvat nicio piesă încă.');
+      return;
+    }
+    const text = dataset.map(p => `${p.id}\n${p.caption_en}\n`).join('\n---\n\n');
+    const blob = new Blob([text], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `captionuri_ie_${new Date().toISOString().split('T')[0]}.txt`;
+    a.click();
+  }
+</script>
+
+</body>
+</html>
