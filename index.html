@@ -460,6 +460,32 @@ button {
   <label>Sursa imaginii</label>
   <input type="text" id="sursa" placeholder="ex: Muzeul ASTRA Sibiu, arhivă personală">
 </div>
+
+<div class="camp">
+  <label>Perspectiva fotografiei <span class="obligatoriu">*</span></label>
+  <select id="perspectiva">
+    <option value="">— selectează —</option>
+    <option value="front view">Față</option>
+    <option value="back view">Spate</option>
+    <option value="embroidery detail">Detaliu broderie</option>
+    <option value="three-quarter view">Trei sferturi</option>
+    <option value="full-length front view">Față, în întregime</option>
+    <option value="full-length back view">Spate, în întregime</option>
+  </select>
+</div>
+
+<div class="camp">
+  <label>Context fotografie</label>
+  <select id="context-foto">
+    <option value="">— selectează —</option>
+    <option value="studio photograph on mannequin">Studio — pe manechin</option>
+    <option value="studio photograph flat lay">Studio — plată (flat lay)</option>
+    <option value="worn by person, posed">Purtată — poză în scenă</option>
+    <option value="worn by person, reportage">Purtată — fotografie de teren</option>
+    <option value="museum display">Expusă la muzeu</option>
+    <option value="archival scan">Scanare arhivă</option>
+  </select>
+</div>
 ```
 
   </div>
@@ -725,6 +751,8 @@ button {
     const elemente = getChecked('element');
 
     const observatii = getVal('observatii');
+    const perspectiva = getVal('perspectiva');
+    const contextFoto = getVal('context-foto');
 
     // Validare minimă
     if (!judet || !material) {
@@ -735,6 +763,14 @@ button {
 
     // ── Construim caption-ul în engleză ──
     let parts = [];
+
+    // Perspectivă & context foto — prima propoziție de context vizual
+    if (perspectiva || contextFoto) {
+      let vizual = [];
+      if (perspectiva) vizual.push(perspectiva);
+      if (contextFoto) vizual.push(contextFoto);
+      parts.push(`Photograph showing ${vizual.join(', ')}.`);
+    }
 
     // Intro standard
     let intro = `Authentic Romanian traditional blouse (ie, cămașă cu altiță) from ${judet} region`;
@@ -784,6 +820,8 @@ button {
     // ── Rezumat în română ──
     let ro = `Ie din zona ${judet || '—'}`;
     if (perioada) ro += `, ${getTextSelectat('perioada')}`;
+    if (perspectiva) ro += `. Perspectivă: ${getTextSelectat('perspectiva')}`;
+    if (contextFoto) ro += `. Context foto: ${getTextSelectat('context-foto')}`;
     if (altitaForma) ro += `. Altiță: ${getTextSelectat('altita-forma')}`;
     if (material) ro += `. Material: ${getTextSelectat('material')}`;
     if (motive.length > 0) ro += `. Motive: ${motive.map(m => m.split(' ').slice(0,2).join(' ')).join(', ')}`;
@@ -796,6 +834,7 @@ button {
     window._captionCurent = {
       id: id || `piesa_${Date.now()}`,
       judet, perioada, sursa,
+      perspectiva, context_foto: contextFoto,
       altita: { forma: altitaForma, latime: altitaLatime, tehnici },
       motive, culori,
       constructie: { incretGat, maneca, elemente },
