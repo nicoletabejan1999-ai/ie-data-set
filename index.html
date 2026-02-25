@@ -541,7 +541,7 @@ button {
 
 ```
 <div class="camp">
-  <label>Culoarea încreșului</label>
+  <label>Culoarea încrețului</label>
   <select id="incret-culoare">
     <option value="">— selectează —</option>
     <option value="white gathering">Alb</option>
@@ -555,7 +555,7 @@ button {
 </div>
 
 <div class="camp">
-  <label>Funcția încreșului</label>
+  <label>Funcția încrețului</label>
   <select id="incret-functie">
     <option value="">— selectează —</option>
     <option value="functional-decorative gathering (joins altița to sleeve)">Funcțional-decorativ (unește alița de mânecă)</option>
@@ -564,7 +564,7 @@ button {
 </div>
 
 <div class="camp">
-  <label>Tehnica încreșului</label>
+  <label>Tehnica încrețului</label>
   <div class="checkbox-grid">
     <label class="checkbox-item"><input type="checkbox" name="incret-tehnica" value="back stitch gathering"> Cusătură pe dos</label>
     <label class="checkbox-item"><input type="checkbox" name="incret-tehnica" value="half cross-stitch gathering"> Jumătăți de cruciță</label>
@@ -575,7 +575,7 @@ button {
 </div>
 
 <div class="camp">
-  <label>Motivele încreșului</label>
+  <label>Motivele încrețului</label>
   <div class="checkbox-grid">
     <label class="checkbox-item"><input type="checkbox" name="incret-motiv" value="ram's horns motif (coarnele berbecului)"> Coarnele berbecului</label>
     <label class="checkbox-item"><input type="checkbox" name="incret-motiv" value="key motif (cheia)"> Cheia</label>
@@ -886,11 +886,10 @@ button {
   <div class="sectiune full-width">
     <div class="sectiune-titlu">💾 Export dataset</div>
     <p style="font-size:12px; color:var(--text-slab); margin-bottom:1rem;">
-      Toate piesele salvate în această sesiune pot fi descărcate ca fișier JSON — formatul standard pentru antrenament IA.
+      Toate piesele salvate în această sesiune pot fi descărcate ca fișier TXT cu captionurile generate.
     </p>
     <div class="butoane">
-      <button class="btn-primary" onclick="descarcaJSON()">↓ Descarcă JSON</button>
-      <button class="btn-secondary" onclick="descarcaTXT()">↓ Descarcă TXT (captionuri simple)</button>
+      <button class="btn-primary" onclick="descarcaTXT()">↓ Descarcă TXT</button>
     </div>
     <br>
     <div id="previzualizare-dataset" style="display:none;">
@@ -1154,20 +1153,6 @@ button {
     document.querySelectorAll('textarea').forEach(t => t.value = '');
     document.getElementById('output-en').textContent = '— completează câmpurile și apasă „Generează Caption" —';
     document.getElementById('output-ro').textContent = '—';
-  }
-
-  // ── EXPORT JSON ──
-  function descarcaJSON() {
-    if (dataset.length === 0) {
-      alert('Nu ai salvat nicio piesă încă.');
-      return;
-    }
-    const blob = new Blob([JSON.stringify(dataset, null, 2)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `dataset_ie_${new Date().toISOString().split('T')[0]}.json`;
-    a.click();
   }
 
   // ── EXPORT TXT ──
