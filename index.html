@@ -534,6 +534,102 @@ button {
 
   </div>
 
+  <!-- ── ÎNCREȚ ── -->
+
+  <div class="sectiune">
+    <div class="sectiune-titlu">🔸 Încreț (sub altiță)</div>
+
+```
+<div class="camp">
+  <label>Culoarea încreșului</label>
+  <select id="incret-culoare">
+    <option value="">— selectează —</option>
+    <option value="white gathering">Alb</option>
+    <option value="beige gathering">Bej</option>
+    <option value="yellow gathering">Galben</option>
+    <option value="ochre gathering">Ocru</option>
+    <option value="orange gathering">Portocaliu</option>
+    <option value="red gathering">Roșu</option>
+    <option value="multicolor gathering">Multicolor</option>
+  </select>
+</div>
+
+<div class="camp">
+  <label>Funcția încreșului</label>
+  <select id="incret-functie">
+    <option value="">— selectează —</option>
+    <option value="functional-decorative gathering (joins altița to sleeve)">Funcțional-decorativ (unește alița de mânecă)</option>
+    <option value="decorative-only gathering (separates altița from râuri)">Doar decorativ (separă alița de râuri)</option>
+  </select>
+</div>
+
+<div class="camp">
+  <label>Tehnica încreșului</label>
+  <div class="checkbox-grid">
+    <label class="checkbox-item"><input type="checkbox" name="incret-tehnica" value="back stitch gathering"> Cusătură pe dos</label>
+    <label class="checkbox-item"><input type="checkbox" name="incret-tehnica" value="half cross-stitch gathering"> Jumătăți de cruciță</label>
+    <label class="checkbox-item"><input type="checkbox" name="incret-tehnica" value="drawn thread work gathering (ajur)"> Ajur</label>
+    <label class="checkbox-item"><input type="checkbox" name="incret-tehnica" value="cross-stitch gathering"> Punct încrucișat</label>
+    <label class="checkbox-item"><input type="checkbox" name="incret-tehnica" value="embroidery on gathering folds edge"> Broderie pe muchia crețurilor</label>
+  </div>
+</div>
+
+<div class="camp">
+  <label>Motivele încreșului</label>
+  <div class="checkbox-grid">
+    <label class="checkbox-item"><input type="checkbox" name="incret-motiv" value="ram's horns motif (coarnele berbecului)"> Coarnele berbecului</label>
+    <label class="checkbox-item"><input type="checkbox" name="incret-motiv" value="key motif (cheia)"> Cheia</label>
+    <label class="checkbox-item"><input type="checkbox" name="incret-motiv" value="ruja motif"> Ruja</label>
+    <label class="checkbox-item"><input type="checkbox" name="incret-motiv" value="rhomboid gathering motifs"> Romboidale</label>
+    <label class="checkbox-item"><input type="checkbox" name="incret-motiv" value="unidentified geometric gathering motif"> Geometric neidentificat</label>
+  </div>
+</div>
+```
+
+  </div>
+
+  <!-- ── RÂURI ── -->
+
+  <div class="sectiune">
+    <div class="sectiune-titlu">〰️ Râuri (pe mânecă)</div>
+
+```
+<div class="camp">
+  <label>Număr de râuri</label>
+  <select id="rauri-numar">
+    <option value="">— selectează —</option>
+    <option value="1 sleeve band (stâlp/pom)">1 râu (stâlp / pom)</option>
+    <option value="2 sleeve bands">2 râuri</option>
+    <option value="3 sleeve bands">3 râuri</option>
+    <option value="4 sleeve bands">4 râuri</option>
+    <option value="5 or more sleeve bands">5+ râuri</option>
+  </select>
+</div>
+
+<div class="camp">
+  <label>Direcția râurilor</label>
+  <select id="rauri-directie">
+    <option value="">— selectează —</option>
+    <option value="vertical straight bands">Verticale (drepte)</option>
+    <option value="diagonal/oblique bands (costișate)">Oblice / costișate</option>
+    <option value="combined band directions">Combinate</option>
+  </select>
+</div>
+
+<div class="camp">
+  <label>Tip special</label>
+  <select id="rauri-tip">
+    <option value="">— selectează —</option>
+    <option value="stâlp cu ramuri (tree of life / axis of symmetry)">Stâlp cu ramuri (pom / ax de simetrie)</option>
+    <option value="șinătău (3 vertical sleeve bands)">Șinătău (3 râuri verticale)</option>
+    <option value="șire band pattern">Șire</option>
+    <option value="ciocănele band pattern">Ciocănele</option>
+  </select>
+</div>
+```
+
+  </div>
+
   <!-- ── MOTIVE ── -->
 
   <div class="sectiune">
@@ -591,6 +687,34 @@ button {
       <div class="culoare-bif" style="background:#E8DFC8;border:1px solid #ccc;"></div>
       <input type="checkbox" name="culoare" value="white-on-white"> Alb pe alb
     </label>
+  </div>
+</div>
+```
+
+  </div>
+
+  <!-- ── PUI ── -->
+
+  <div class="sectiune">
+    <div class="sectiune-titlu">✦ Pui (pe piept și stani)</div>
+
+```
+<div class="camp">
+  <label>Amplasarea puilor</label>
+  <div class="checkbox-grid">
+    <label class="checkbox-item"><input type="checkbox" name="pui-amplasare" value="chest pui motifs (flanking neckline opening)"> Pe piept (flancând gura cămășii)</label>
+    <label class="checkbox-item"><input type="checkbox" name="pui-amplasare" value="back pui motifs"> Pe spate</label>
+    <label class="checkbox-item"><input type="checkbox" name="pui-amplasare" value="hem pui motifs (lower edge)"> Pe poale (margine inferioară)</label>
+    <label class="checkbox-item"><input type="checkbox" name="pui-amplasare" value="chest and back pui motifs"> Pe piept și spate</label>
+  </div>
+</div>
+
+<div class="camp">
+  <label>Tehnica puilor</label>
+  <div class="checkbox-grid">
+    <label class="checkbox-item"><input type="checkbox" name="pui-tehnica" value="șabace technique (stamped embroidery)"> Șabace</label>
+    <label class="checkbox-item"><input type="checkbox" name="pui-tehnica" value="stitch work pui"> Cusătură în puncturi</label>
+    <label class="checkbox-item"><input type="checkbox" name="pui-tehnica" value="small cross-stitch pui (cruciulițe)"> Cruciulițe</label>
   </div>
 </div>
 ```
@@ -657,6 +781,67 @@ button {
     <label class="checkbox-item"><input type="checkbox" name="element" value="side gussets (clini)"> Clini laterali</label>
     <label class="checkbox-item"><input type="checkbox" name="element" value="back panel embroidery"> Broderie spate</label>
   </div>
+</div>
+
+<div class="camp">
+  <label>Brățară (manșetă)</label>
+  <select id="bratara-tip">
+    <option value="">— selectează —</option>
+    <option value="embroidered cuff band (bentiță brodată)">Bentiță brodată</option>
+    <option value="ruffle cuff (fodor/volan)">Fodor / volan</option>
+    <option value="plain cuff band (bentiță simplă)">Bentiță simplă</option>
+    <option value="turned ruffle cuff (pompneată răsfrântă)">Pompneată răsfrântă (volan)</option>
+  </select>
+</div>
+
+<div class="camp">
+  <label>Broderie pe stani (corpul cămășii)</label>
+  <select id="stani-broderie">
+    <option value="">— selectează —</option>
+    <option value="embroidery present on body panels (stani)">Prezentă</option>
+    <option value="no embroidery on body panels">Absentă</option>
+  </select>
+</div>
+
+<div class="camp">
+  <label>Amplasarea broderiei pe stani</label>
+  <div class="checkbox-grid">
+    <label class="checkbox-item"><input type="checkbox" name="stani-amplasare" value="vertical embroidery rows on chest"> Șiruri verticale pe piept</label>
+    <label class="checkbox-item"><input type="checkbox" name="stani-amplasare" value="vertical embroidery rows on back"> Șiruri verticale pe spate</label>
+    <label class="checkbox-item"><input type="checkbox" name="stani-amplasare" value="embroidery at hem edge"> Pe margine poale</label>
+  </div>
+</div>
+
+<div class="camp">
+  <label>Tip guler (bentiță)</label>
+  <select id="guler-tip">
+    <option value="">— selectează —</option>
+    <option value="plain neckband (bentiță simplă)">Bentiță simplă</option>
+    <option value="embroidered neckband (bentiță brodată)">Bentiță brodată</option>
+    <option value="high gathered collar">Guler înalt cu crețuri</option>
+    <option value="no collar (brezărău neckline)">Fără guler (brezărău)</option>
+  </select>
+</div>
+
+<div class="camp">
+  <label>Pavă</label>
+  <select id="pava">
+    <option value="">— selectează —</option>
+    <option value="pavă present (decorative front panel insert)">Prezentă</option>
+    <option value="no pavă">Absentă</option>
+  </select>
+</div>
+
+<div class="camp">
+  <label>Finisaj margini</label>
+  <select id="finisaj-margini">
+    <option value="">— selectează —</option>
+    <option value="colțurele edge finish (needle lace)">Colțurele (dantelă cu acul)</option>
+    <option value="plain buttonhole stitch edge (cheițe simple)">Cheițe simple</option>
+    <option value="puricei buttonhole edge (cheițe cu puricei)">Cheițe cu puricei</option>
+    <option value="ciocănel buttonhole edge (cheițe cu ciocănel)">Cheițe cu ciocănel</option>
+    <option value="crochet edge finish">Croșetă</option>
+  </select>
 </div>
 ```
 
@@ -754,6 +939,25 @@ button {
     const perspectiva = getVal('perspectiva');
     const contextFoto = getVal('context-foto');
 
+    const incretCuloare = getVal('incret-culoare');
+    const incretFunctie = getVal('incret-functie');
+    const incretTehnici = getChecked('incret-tehnica');
+    const incretMotive = getChecked('incret-motiv');
+
+    const rauriNumar = getVal('rauri-numar');
+    const rauriDirectie = getVal('rauri-directie');
+    const rauriTip = getVal('rauri-tip');
+
+    const puiAmplasare = getChecked('pui-amplasare');
+    const puiTehnici = getChecked('pui-tehnica');
+
+    const brataraTip = getVal('bratara-tip');
+    const staniBroderie = getVal('stani-broderie');
+    const staniAmplasare = getChecked('stani-amplasare');
+    const gulerTip = getVal('guler-tip');
+    const pava = getVal('pava');
+    const finisajMargini = getVal('finisaj-margini');
+
     // Validare minimă
     if (!judet || !material) {
       document.getElementById('output-en').textContent =
@@ -806,6 +1010,45 @@ button {
       parts.push(`Fabric: ${material}.`);
     }
 
+    // Încreț
+    if (incretCuloare || incretFunctie || incretTehnici.length > 0 || incretMotive.length > 0) {
+      let incretDesc = [];
+      if (incretCuloare) incretDesc.push(incretCuloare);
+      if (incretFunctie) incretDesc.push(incretFunctie);
+      if (incretTehnici.length > 0) incretDesc.push(`techniques: ${incretTehnici.join(', ')}`);
+      if (incretMotive.length > 0) incretDesc.push(`motifs: ${incretMotive.join(', ')}`);
+      parts.push(`Gathering band below altița (încreț): ${incretDesc.join('; ')}.`);
+    }
+
+    // Râuri
+    if (rauriNumar || rauriDirectie || rauriTip) {
+      let rauriDesc = [];
+      if (rauriNumar) rauriDesc.push(rauriNumar);
+      if (rauriDirectie) rauriDesc.push(rauriDirectie);
+      if (rauriTip) rauriDesc.push(rauriTip);
+      parts.push(`Sleeve embroidery bands (râuri): ${rauriDesc.join(', ')}.`);
+    }
+
+    // Pui
+    if (puiAmplasare.length > 0 || puiTehnici.length > 0) {
+      let puiDesc = [];
+      if (puiAmplasare.length > 0) puiDesc.push(puiAmplasare.join(', '));
+      if (puiTehnici.length > 0) puiDesc.push(`technique: ${puiTehnici.join(', ')}`);
+      parts.push(`Small decorative motifs (pui): ${puiDesc.join('; ')}.`);
+    }
+
+    // Brățară, Stani, Guler, Pavă, Finisaj
+    let constructieSup = [];
+    if (gulerTip) constructieSup.push(`collar: ${gulerTip}`);
+    if (brataraTip) constructieSup.push(`cuff: ${brataraTip}`);
+    if (staniBroderie) constructieSup.push(staniBroderie);
+    if (staniAmplasare.length > 0) constructieSup.push(`body embroidery: ${staniAmplasare.join(', ')}`);
+    if (pava) constructieSup.push(pava);
+    if (finisajMargini) constructieSup.push(`edge finish: ${finisajMargini}`);
+    if (constructieSup.length > 0) {
+      parts.push(`Additional construction details: ${constructieSup.join('; ')}.`);
+    }
+
     // CE NU ESTE — crucial pentru antrenament
     parts.push(`Not a blouse: no collar, no buttons, no decorative lace trim, no modern cut, no fitted waist, no synthetic fabric. Traditional Romanian garment, ethnographic textile.`);
 
@@ -825,6 +1068,12 @@ button {
     if (altitaForma) ro += `. Altiță: ${getTextSelectat('altita-forma')}`;
     if (material) ro += `. Material: ${getTextSelectat('material')}`;
     if (motive.length > 0) ro += `. Motive: ${motive.map(m => m.split(' ').slice(0,2).join(' ')).join(', ')}`;
+    if (incretCuloare) ro += `. Încreț: ${getTextSelectat('incret-culoare')}`;
+    if (rauriNumar) ro += `. Râuri: ${getTextSelectat('rauri-numar')}`;
+    if (puiAmplasare.length > 0) ro += `. Pui: ${puiAmplasare.length} amplasare(i)`;
+    if (gulerTip) ro += `. Guler: ${getTextSelectat('guler-tip')}`;
+    if (brataraTip) ro += `. Brățară: ${getTextSelectat('bratara-tip')}`;
+    if (finisajMargini) ro += `. Finisaj: ${getTextSelectat('finisaj-margini')}`;
     if (observatii) ro += `. Note: ${observatii}`;
 
     document.getElementById('output-en').textContent = captionEn;
@@ -836,8 +1085,15 @@ button {
       judet, perioada, sursa,
       perspectiva, context_foto: contextFoto,
       altita: { forma: altitaForma, latime: altitaLatime, tehnici },
+      incret: { culoare: incretCuloare, functie: incretFunctie, tehnici: incretTehnici, motive: incretMotive },
+      rauri: { numar: rauriNumar, directie: rauriDirectie, tip: rauriTip },
+      pui: { amplasare: puiAmplasare, tehnici: puiTehnici },
       motive, culori,
-      constructie: { incretGat, maneca, elemente },
+      constructie: {
+        incretGat, maneca, elemente,
+        bratara: brataraTip, staniBroderie, staniAmplasare,
+        guler: gulerTip, pava, finisajMargini
+      },
       material, stare,
       observatii,
       caption_en: captionEn,
@@ -893,7 +1149,7 @@ button {
   // ── RESETEAZĂ ──
   function reseteazaForm() {
     document.querySelectorAll('select').forEach(s => s.selectedIndex = 0);
-    document.querySelectorAll('input[type="text"]').forEach(i => i.value = '');
+    document.querySelectorAll('input[type="text"], input[type="number"]').forEach(i => i.value = '');
     document.querySelectorAll('input[type="checkbox"]').forEach(c => c.checked = false);
     document.querySelectorAll('textarea').forEach(t => t.value = '');
     document.getElementById('output-en').textContent = '— completează câmpurile și apasă „Generează Caption" —';
